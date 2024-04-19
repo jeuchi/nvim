@@ -13,14 +13,13 @@ return require('packer').startup(function(use)
 	  requires = { {'nvim-lua/plenary.nvim'} }
   }
 
-  use({ 
-	  'rose-pine/neovim', 
-	  as = 'rose-pine',
-	  config = function() 
-		  vim.cmd('colorscheme rose-pine')
-	  end
-  })
 
+  use({
+    "folke/tokyonight.nvim",
+    lazy = false,
+    priority = 1000,
+    opts = {},
+  })
   use('nvim-treesitter/nvim-treesitter', {run = ':TSUpdate'})
   use('nvim-treesitter/playground')
   use('theprimeagen/harpoon')
@@ -31,7 +30,10 @@ return require('packer').startup(function(use)
       "williamboman/mason-lspconfig.nvim",
       "neovim/nvim-lspconfig",
   }
-  use {
+  use('xiyaowong/transparent.nvim')
+  use('stevearc/conform.nvim')
+  use('christoomey/vim-tmux-navigator')
+  use('github/copilot.vim') use {
 	  'VonHeikemen/lsp-zero.nvim',
 	  branch = 'v3.x',
 	  requires = {
